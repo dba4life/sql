@@ -132,8 +132,9 @@ declare cleanupCursor cursor for
 		where
 			' + Field + ' like ''%' + a.string + '%'''
 	from
-		##candidate as i
-		, ##injected as a
+		-- why yes, I did intend that Cartesian Product...
+		##candidate as i,
+		##injected as a
 for read only
 
 open cleanupCursor
