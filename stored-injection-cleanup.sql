@@ -64,6 +64,9 @@ open candidateCursor
 
 fetch next from candidateCursor into @xField
 
+-- Do not display rowcounts for the candidate fields
+set nocount on
+
 while(@@fetch_status = 0)
 begin
 	exec('insert into ##candidate select' + @xSql)
@@ -83,6 +86,8 @@ where
 	or Url = 0 
 	or DivStart = 0 
 	or DivEnd = 0
+
+set nocount off
 
 -- Identify injected values
 declare injectedCursor cursor for
