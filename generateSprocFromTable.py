@@ -152,11 +152,12 @@ def build(tableName, sprocName, fields):
     text += 'end\ngo\n'
     
     print(text)
-    
+
+# Generates whitespace padding based on specified length
 def pad(baseString, width):
     return ' '*int(floor(((width - len(baseString)))))
 
-# Takes a path, trolls each file and performs cleanup against them
+# Takes a path, trolls each file; currently using one hardcoded file
 def process(full_path):
     # Read file
     file = open(full_path, 'r').read()
@@ -165,7 +166,7 @@ def process(full_path):
     return 1
 
 def main(argv=None): # IGNORE:C0111
-    sqlPath = 'C:\\dev\\wip.sql'
+    sqlPath = 'YourTableHere.sql'
         
     process(sqlPath)
     
